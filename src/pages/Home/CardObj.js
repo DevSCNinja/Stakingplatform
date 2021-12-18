@@ -152,7 +152,7 @@ export const CardObj = () => {
                     try {
                         clearInterval(timer)
                         await web3.currentProvider.request({
-                            method: "wallet_switchCronoschain",
+                            method: "wallet_switchEthereumChain",
                             params: [{ chainId: netchainIdHex }]
                         });
 
@@ -198,11 +198,11 @@ export const CardObj = () => {
                 }
                 setTokensOfOwner(tokenData);
                 console.log(tokenData)
-                setOpen(true)   
+                setOpen(true)
             } else {
                 try {
                     await web3.currentProvider.request({
-                        method: "wallet_switchCronosChain",
+                        method: "wallet_switchEthereumChain",
                         params: [{ chainId: netchainIdHex }]
                     });
                 } catch (error) {
@@ -241,7 +241,7 @@ export const CardObj = () => {
             } else {
                 try {
                     await web3.currentProvider.request({
-                        method: "wallet_switchCronosChain",
+                        method: "wallet_switchEthereumChain",
                         params: [{ chainId: netchainIdHex }]
                     });
                 } catch (error) {
@@ -296,7 +296,7 @@ export const CardObj = () => {
             } else {
                 try {
                     await web3.currentProvider.request({
-                        method: "wallet_switchCronosChain",
+                        method: "wallet_switchEthereumChain",
                         params: [{ chainId: netchainIdHex }]
                     });
                 } catch (error) {
