@@ -20,7 +20,7 @@ const CrocosFarmAddr = "0xa7F25Ecf449a498A7F41112f35B6e1EE2dc1a4f7";
 const CrocosNFTAddr = "0x18b73D1f9e2d97057deC3f8D6ea9e30FCADB54D7";
 let myAddr = "";
 const netchainId = 25;
-const netchainIdHex = '0x152';
+const netchainIdHex = '0x19';
 
 const style = {
     position: 'absolute',

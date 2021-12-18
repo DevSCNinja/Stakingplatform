@@ -16,7 +16,7 @@ const CrocosFarmAddr = "0xa7F25Ecf449a498A7F41112f35B6e1EE2dc1a4f7";
 const CrocosTokenAddr = "0xfbb5B537625f210F7A36E2522e5E91a7F00C9e96";
 let myAddr = "";
 const netchainId = 25;
-const netchainIdHex = '0x152';
+const netchainIdHex = '0x19';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -59,11 +59,11 @@ export const CardNum = () => {
                     const sendToken = stakeWithBal + '000000000000000000';
                     if (stakeState === true) {
                         const getAllowance = await tokenContract.allowance(myAddr, CrocosFarmAddr);
-                        if(getAllowance / Math.pow(10, 18) < stakeWithBal) {
-                          const tokenCon = await tokenContract.approve(CrocosFarmAddr, ('1000000000000000000000000'));                          
-                          await tokenCon.wait();
-                        }                      
-                        
+                        if (getAllowance / Math.pow(10, 18) < stakeWithBal) {
+                            const tokenCon = await tokenContract.approve(CrocosFarmAddr, ('1000000000000000000000000'));
+                            await tokenCon.wait();
+                        }
+
                         console.log('sendToken', sendToken)
                         const farmCon = await farmContract.stakeFt(sendToken);
                         await farmCon.wait();
@@ -241,7 +241,7 @@ export const CardNum = () => {
         <div>
             <div className={styles.card}>
                 <div className={styles.title}>Stake CROCOS get CROCOS 50% APR</div>
-                <img src={getImg('home/ft.png')}  style={{height:'180px'}} alt="nft" />
+                <img src={getImg('home/ft.png')} style={{ height: '180px' }} alt="nft" />
                 <CustomButton value="Pick CROCOS" onClick={onClickPick} />
                 <div className={styles.box}>
                     <h5>Reward</h5>
