@@ -1,6 +1,7 @@
 import React from "react";
 import { getImg } from "../../hook/Helper";
 import styles from './Home.module.sass';
+import './Home.scss'
 import { CardNum } from './CardNum'
 import { CardObj } from './CardObj'
 

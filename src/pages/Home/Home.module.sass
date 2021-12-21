@@ -3,7 +3,6 @@
     height: 100vh
     background-size: cover
 
-    -x: hidden
     display: flex
     justify-content: center
     text-align: center
@@ -66,3 +65,13 @@
     input
         font-size: 20px
         width: 200px
+
+@media screen and (max-width: 768px)
+
+    .div
+        flex-direction: column
+        height: auto
+        overflow-x: hidden
+
+    .card
+        margin: 30px auto
