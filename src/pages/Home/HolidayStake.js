@@ -32,7 +32,7 @@ const style = {
     boxShadow: 24,
 };
 
-export const CardObj = () => {
+export const HolidayStake = () => {
 
     const [open, setOpen] = useState(false);
     const [tokensOfOwner, setTokensOfOwner] = useState([]);
@@ -313,7 +313,7 @@ export const CardObj = () => {
         <div>
             <div className={styles.card}>
                 <div className={styles.title}>Stake NFT get CROCOS 100% APR</div>
-                <img src={getImg('home/nft.png')} alt="nft" />
+                <img src={getImg('home/websitecrocos1.png')} alt="nft" />
                 <CustomButton value="Pick NFT" onClick={onClickPick} />
                 <div className={styles.box}>
                     <h5>Reward</h5>
