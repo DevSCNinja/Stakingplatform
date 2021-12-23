@@ -11,7 +11,7 @@ import { getImg } from "../../hook/Helper";
 import styles from './Home.module.sass';
 import { CustomButton } from "../../components/CustomButton";
 import CrocosFarmV2Cont from "../../ABI/CrocosFarmV2.json";
-const CrocosFarmV2Addr = "0xa7F25Ecf449a498A7F41112f35B6e1EE2dc1a4f7"
+const CrocosFarmV2Addr = "0x2Ee818b2dD3749D33943f8226E5a72D4d3b0c14B"
 let myAddr = "";
 const netchainId = 25;
 const netchainIdHex = '0x19';
