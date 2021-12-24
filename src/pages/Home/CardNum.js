@@ -10,8 +10,8 @@ import Web3Modal from "web3modal";
 import { getImg } from "../../hook/Helper";
 import styles from './Home.module.sass';
 import { CustomButton } from "../../components/CustomButton";
-import CrocosFarmV2Cont from "../../ABI/CrocosFarmV2.json";
-const CrocosFarmV2Addr = "0x2Ee818b2dD3749D33943f8226E5a72D4d3b0c14B"
+import CRCUnStake from "../../ABI/CRCUnStake.json";
+const CrocosUnstake = "0x276d8E6A06f627611389dCb44bF1F3B277F72C09"
 let myAddr = "";
 const netchainId = 25;
 const netchainIdHex = '0x19';
@@ -33,7 +33,7 @@ export const CardNum = () => {
     const onClickStake = async () => {
         if (stakeWithBal && stakeWithBal > 0) {
             const web3 = new Web3(Web3.givenProvider);
-            let farmV2Contract;
+            let crcUnstakeContract;
             try {
                 const chainId = await web3.eth.getChainId()
                 if (chainId === netchainId) {
@@ -41,12 +41,12 @@ export const CardNum = () => {
                     const connection = await web3Modal.connect();
                     const provider = new ethers.providers.Web3Provider(connection);
                     const signer = provider.getSigner();
-                    farmV2Contract = new ethers.Contract(
-                        CrocosFarmV2Addr,
-                        CrocosFarmV2Cont.abi,
+                    crcUnstakeContract = new ethers.Contract(
+                        CrocosUnstake,
+                        CRCUnStake.abi,
                         signer
                     );
-                    const farmCon = await farmV2Contract.withdrawStakedCRC();
+                    const farmCon = await crcUnstakeContract.withdrawStakedCRC();
                     await farmCon.wait();
                     setOpen(false)
                 } else {
@@ -72,7 +72,7 @@ export const CardNum = () => {
         setStakeWithBal(0);
 
         const web3 = new Web3(Web3.givenProvider);
-        let farmV2Contract;
+        let crcUnstakeContract;
         try {
             const chainId = await web3.eth.getChainId()
             if (chainId === netchainId) {
@@ -82,12 +82,12 @@ export const CardNum = () => {
                 const signer = provider.getSigner();
                 myAddr = signer.provider.provider.selectedAddress;
                 console.log(myAddr)
-                farmV2Contract = new ethers.Contract(
-                    CrocosFarmV2Addr,
-                    CrocosFarmV2Cont.abi,
+                crcUnstakeContract = new ethers.Contract(
+                    CrocosUnstake,
+                    CRCUnStake.abi,
                     signer
                 );
-                const val = await farmV2Contract.getClaimableCRCBalanceOf(myAddr);
+                const val = await crcUnstakeContract.getClaimableCRCBalanceOf(myAddr);
                 setStakeBalance(val);
                 setOpen(true)
             } else {
